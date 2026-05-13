@@ -14,7 +14,7 @@ Funções principais
 6. Encerrar um programa;
 
 //alocação estática
-int vetor[5][6]; -- erro;
+int vetor[5][6];
 int vetor[][] = { {1, 2, 3,7,8,9}, {4, 5, 6}, {}, {}, {} };
 //alocação dinâmica
 int **vetor = {{}, {}, {}, {}};

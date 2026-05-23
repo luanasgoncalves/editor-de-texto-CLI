@@ -6,8 +6,33 @@
 #define MAX_LINHAS 30
 #define MAX_COLUNAS 40
 
+// ESTRUTURAS 
+typedef struct {
+    char nomeArquivo[30];
+    char *conteudoArquivo;
+} Arquivo;
+
 // FUNÇOES BACANAS QUE AINDA NÃO FAZEM NADA
-void lerArquivo(); 
+void lerArquivo() {
+    Arquivo arqui = {
+        .nomeArquivo = "testemaneiro.txt",
+        .conteudoArquivo = "estamos fazendo testes maneiros"
+    };
+
+    char nomeDigitadoUsuario[30];
+
+    printf("Digite o nome do arquivo:\n> ");
+    scanf("%[^\n]s", nomeDigitadoUsuario);
+
+    if(strcmp(nomeDigitadoUsuario, arqui.nomeArquivo)) {
+        printf("\nArquivo não encontrado.\n");
+        return;
+    };
+
+    printf("%s\n%s\n", arqui.nomeArquivo, arqui.conteudoArquivo);
+
+}
+
 /* {
     função pra reconhecer o arquivo e mostrar ao usuário;
     busca o nome do arquivo; 
@@ -43,6 +68,9 @@ void apagarArquivo();
     se sim, apaga o conteúdo total do arquivo (nome e conteúdo interno)
 }*/
 
+/* criar um IF-ELSE pra quando o usuário der enter duplo pra parar de escrever, ou então pedir pro usuario digitar algo específico
+pra terminar o arquivo */
+
 // MENU BEM RESUMIDO
 int main()
 {
@@ -60,27 +88,28 @@ int main()
         printf("6. Sair do programa;\n");
 
         scanf("%d", &menu);
+        while (getchar() != '\n');
 
         switch(menu) 
         {
             case 1:
-            lerArquivo(); // criar funçao
+            lerArquivo(); 
             break;
 
             case 2:
-            criarArquivo();
+            //criarArquivo();
             break;
 
             case 3:
-            editarArquivo();
+           // editarArquivo();
             break;
 
             case 4:
-            importarArquivo();
+          //  importarArquivo();
             break;
 
             case 5:
-            apagarArquivo();
+          //  apagarArquivo();
             break;
 
             case 6:
@@ -91,6 +120,6 @@ int main()
             printf("Valor inválido.");
         }
     }
-
+    getchar();
     return 0;
 }

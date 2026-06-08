@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "arquivos.h"
 #include "interface.h"
 #include "util.h"
@@ -20,7 +19,7 @@ void lerArquivo()
     }
     printf("\n");
     
-    char *leitura_arquivo;
+    char leitura_arquivo[80];
     cabecalhoArquivo(nome_arquivo);
     
     while (fgets(leitura_arquivo, sizeof(leitura_arquivo), arquivo)) {
